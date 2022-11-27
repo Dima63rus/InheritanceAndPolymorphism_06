@@ -14,22 +14,22 @@ package inheritanceAndPolymorphism_06_02;
 
 public class BankAccount {
     /* Снять со счёта сумму денег (без комиссии). */
-    public Boolean withdrawMoney(double ivSum) {
+    protected Boolean withdrawMoney(double ivSum) {
         return false;
     }
 
     /* Вносить на счёт сумму денег (без комиссии). */
-    public void makeMoney(double ivSum) {
+    protected void makeMoney(double ivSum) {
     }
 
     /* Получить остаток на счёте. */
-    public double getRestMoney() {
+    protected double getRestMoney() {
         return 0.0d;
     }
 
     /* Для отправки денег с одного счёта на другой.
        Метод должен вернуть true, если деньги успешно переведены. */
-    public boolean send(BankAccount ioReceiver, double ivAmount) {
+    protected boolean send(BankAccount ioReceiver, double ivAmount) {
         return false;
     }
 }

@@ -8,7 +8,7 @@ public class CardCount extends BankAccount {
     private double mvSumOnCount;
 
     /* Снять со счёта сумму денег (без комиссии). */
-    public Boolean withdrawMoney(double ivSum) {
+    protected Boolean withdrawMoney(double ivSum) {
         if (mvSumOnCount < ivSum) {
             System.out.println("Денег на счете меньше чем запрашиваемая сумма");
             return false;
@@ -29,18 +29,18 @@ public class CardCount extends BankAccount {
     }
 
     /* Вносить на счёт сумму денег (без комиссии). */
-    public void makeMoney(double ivSum) {
+    protected void makeMoney(double ivSum) {
         mvSumOnCount += ivSum;
     }
 
     /* Получить остаток на счёте. */
-    public double getRestMoney() {
+    protected double getRestMoney() {
         return mvSumOnCount;
     }
 
     /* Для отправки денег с одного счёта на другой.
        Метод должен вернуть true, если деньги успешно переведены. */
-    public boolean send(BankAccount ioReceiver, double ivAmount) {
+    protected boolean send(BankAccount ioReceiver, double ivAmount) {
         //Снять деньги с карточного счета
         if (withdrawMoney(ivAmount)) {
             //Положить деньги на депозитный счет

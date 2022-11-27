@@ -1,6 +1,5 @@
 package inheritanceAndPolymorphism_06_02;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /*
@@ -17,7 +16,7 @@ public class DepositCount extends BankAccount {
     Депозитный расчётный счёт, с которого нельзя снимать деньги в течение месяца
     после последнего внесения.
      */
-    public Boolean withdrawMoney(double ivSum) {
+    protected Boolean withdrawMoney(double ivSum) {
         if (mvSumOnCount < ivSum) {
             System.out.println("Недостаточно денег на депозитном счете");
             return false;
@@ -35,7 +34,7 @@ public class DepositCount extends BankAccount {
     }
 
     /* Вносить на счёт сумму денег (без комиссии). */
-    public void makeMoney(double ivSum) {
+    protected void makeMoney(double ivSum) {
         mvSumOnCount += ivSum;
 
         //Получить дату внесения денег на депозитный счет
@@ -43,13 +42,13 @@ public class DepositCount extends BankAccount {
     }
 
     /* Получить остаток на счёте. */
-    public double getRestMoney() {
+    protected double getRestMoney() {
         return mvSumOnCount;
     }
 
     /* Для отправки денег с одного счёта на другой.
    Метод должен вернуть true, если деньги успешно переведены. */
-    public boolean send(BankAccount ioReceiver, double ivAmount) {
+    protected boolean send(BankAccount ioReceiver, double ivAmount) {
         //Снять сумму с депозитного счета
         if (withdrawMoney(ivAmount)) {
             //Положить деньги на карточный счет

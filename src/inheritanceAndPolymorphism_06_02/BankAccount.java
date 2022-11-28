@@ -12,7 +12,7 @@ package inheritanceAndPolymorphism_06_02;
 •	Карточный счёт, при снятии денег с которого будет взиматься комиссия 1%.
  */
 
-public class BankAccount {
+public class BankAccount extends Client {
     /* Снять со счёта сумму денег (без комиссии). */
     protected Boolean withdrawMoney(double ivSum) {
         return false;
@@ -31,5 +31,9 @@ public class BankAccount {
        Метод должен вернуть true, если деньги успешно переведены. */
     protected boolean send(BankAccount ioReceiver, double ivAmount) {
         return false;
+    }
+
+    @Override
+    public void showInfo() {
     }
 }
